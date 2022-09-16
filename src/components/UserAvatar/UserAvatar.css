@@ -1,0 +1,13 @@
+.UserAvatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    color: black;
+    margin-right: 10px;
+}
+.UserAvatar__Img {
+    width: 42px;
+    margin-right: -25px;
+  
+}

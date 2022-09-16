@@ -1,0 +1,17 @@
+.vciso-bot-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #fff;
+    margin-right: -5px;
+}
+.vciso-bot-avatar-img {
+    width: 45px;
+    height: 30px;
+    border-radius: 25px;
+    margin-right:40px;
+}

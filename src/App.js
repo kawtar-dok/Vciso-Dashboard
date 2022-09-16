@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import "./App.css";
-
+import { Chatbot } from "react-chatbot-kit"
 // react-router components
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
@@ -95,6 +95,29 @@ export default function App() {
       return null;
     });
 
+   const chatButton = (
+      <SoftBox
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        width="3.5rem"
+        height="3.5rem"
+        bgColor="dark"
+        shadow="sm"
+        borderRadius="50%"
+        position="fixed"
+        right="2rem"
+        bottom="2rem"
+        zIndex={99}
+        color="white"
+        sx={{ cursor: "pointer" }}
+        onClick={handleChatOpen}
+      >
+        <Icon fontSize="default" color="inherit">
+          chat
+        </Icon>
+      </SoftBox>
+    );
   const configsButton = (
     <SoftBox
       display="flex"
@@ -111,18 +134,20 @@ export default function App() {
       zIndex={99}
       color="white"
       sx={{ cursor: "pointer" }}
-      onClick={handleConfiguratorOpen}
+      onClick={handleChatOpen}
     >
       <Icon fontSize="default" color="inherit">
-        chat
+        settings
       </Icon>
     </SoftBox>
   );
 
   return direction === "rtl" ? (
+    
     <CacheProvider value={rtlCache}>
       <ThemeProvider theme={themeRTL}>
         <CssBaseline />
+       
         {layout === "dashboard" && (
           <>
             <Sidenav
@@ -133,11 +158,12 @@ export default function App() {
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
             />
-            <Configurator />
-            {configsButton}
+            <Chat /> {chatButton}
+          
           </>
         )}
-        {layout === "vr" && <Configurator />}
+
+        {layout === "vr" && <Chat />}
         <Routes>
           {getRoutes(routes)}
           <Route path="*" element={<Navigate to="/dashboard" />} />
@@ -157,15 +183,16 @@ export default function App() {
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
           />
-          <Configurator />
-          {configsButton}
+          <Chat />  {chatButton}
+         
         </>
       )}
-      {layout === "vr" && <Configurator />}
+      {layout === "vr" && <Chat />}
       <Routes>
         {getRoutes(routes)}
         <Route path="*" element={<Navigate to="/dashboard" />} />
       </Routes>
     </ThemeProvider>
   );
+ 
 }

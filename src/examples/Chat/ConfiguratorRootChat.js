@@ -33,6 +33,7 @@ export default styled(Drawer)(({ theme, ownerState }) => {
 
   return {
     "& .MuiDrawer-paper": {
+      
       height: "100vh",
       margin: 0,
       padding: `0 ${pxToRem(10)}`,

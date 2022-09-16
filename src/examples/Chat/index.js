@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { Chatbot } from "react-chatbot-kit"
+import 'react-chatbot-kit/build/main.css';
+import './chatbot.css';
 
 // @mui material components
 import Divider from "@mui/material/Divider";
@@ -20,10 +23,12 @@ import ConfiguratorRootChat from "examples/Chat/ConfiguratorRootChat";
 import {
   useSoftUIController,
   setOpenChat,
-  setTransparentSidenav,
-  setFixedNavbar,
-  setSidenavColor,
 } from "context";
+
+//Chatbot element
+import MessageParser from "./MessageParser"; 
+import config from "./Config";
+import ActionProvider from "./ActionProvider";
 
 function Chat() {
   const [controller, dispatch] = useSoftUIController();
@@ -49,56 +54,44 @@ function Chat() {
   }, []);
 
   const handleCloseChat = () => setOpenChat(dispatch, false);
-  const handleTransparentSidenav = () => setTransparentSidenav(dispatch, true);
-  const handleWhiteSidenav = () => setTransparentSidenav(dispatch, false);
-  const handleFixedNavbar = () => setFixedNavbar(dispatch, !fixedNavbar);
 
   // sidenav type buttons styles
-  const sidenavTypeButtonsStylesChat = ({
-    functions: { pxToRem },
-    boxShadows: { buttonBoxShadow },
-  }) => ({
-    height: pxToRem(42),
-    boxShadow: buttonBoxShadow.main,
 
-    "&:hover, &:focus": {
-      opacity: 1,
-    },
-  });
 
   return (
     <ConfiguratorRootChat variant="permanent" ownerState={{ openChat }}>
-      <SoftBox
+       <SoftBox
         display="flex"
         justifyContent="space-between"
         alignItems="baseline"
-        pt={3}
+        pt={0}
         pb={0.8}
-        px={3}
+        px={4}
       >
-        <SoftBox>
-          <SoftTypography variant="h5">VCISO Chat</SoftTypography>
-          <SoftTypography variant="body2" color="text">
-           
-          </SoftTypography>
-        </SoftBox>
-
+        
         <Icon
           sx={({ typography: { size, fontWeightBold }, palette: { dark } }) => ({
             fontSize: `${size.md} !important`,
             fontWeight: `${fontWeightBold} !important`,
             stroke: dark.main,
             strokeWidth: "2px",
+            color: "#fff",
             cursor: "pointer",
+            zIndex:"1000",
             mt: 2,
+            ml: 36,
+           
+           
+
           })}
           onClick={handleCloseChat}
         >
           close
         </Icon>
+        
       </SoftBox>
-
-      <Divider />
+      <Chatbot   config={config} messageParser={MessageParser} actionProvider={ActionProvider}  />
+    {/* <Divider />*/}
 
       
     </ConfiguratorRootChat>

@@ -27,7 +27,7 @@ import OrderOverview from "layouts/dashboard/components/OrderOverview";
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import gradientLineChartData from "layouts/dashboard/data/gradientLineChartData";
 
-function Dashboard() {
+function Workshop() {
   const { size } = typography;
   const { chart, items } = reportsBarChartData;
 
@@ -39,4 +39,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Workshop;

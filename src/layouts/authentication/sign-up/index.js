@@ -39,7 +39,7 @@ function SignUp() {
 
   async function register() {
     console.log(info);
-    const data = await axios.post("http://localhost:3001/authentication/sign-up", {
+    const data = await axios.post("http://localhost:3001/auth//register", {
       username: info.username,
       password: info.password,
       email: info.email,

@@ -31,7 +31,7 @@ function SignIn() {
 
   
   async function login() {
-    const data = await axios.post("http://localhost:3001/authentication/sign-in", {
+    const data = await axios.post("http://localhost:3001/auth/login", {
       data: {
         username: info.username,
         password: info.password,
