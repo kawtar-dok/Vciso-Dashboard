@@ -1,0 +1,159 @@
+.Chat {
+  position: relative;
+  display: grid;
+  grid-template-columns: 22% auto;
+  gap: 1rem;
+}
+.Chat__Card {
+    display: felx;
+    flex-direction: columns;
+    gap: 1rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    height: auto;
+    min-height:75vh;  
+}
+
+.Left__Side__Chat {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+}
+.Chat__container {
+    display: felx;
+    flex-direction: columns;
+    gap: 1rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    height: auto;
+    align-self: center;
+    justify-content: center;
+}
+.ChatBox__Container {
+    background: var(--cardColor);
+    border-radius: 1rem;
+    display: grid;
+    grid-template-rows: 14vh 60vh 13vh;
+}
+
+.Chat__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.Right__Side__chat {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+} 
+.conversation:hover {
+    background: #80808038;
+    cursor: pointer;
+}
+.conversation {
+    border-radius: 0.5rem;
+    padding: 10px;
+}
+.conversation > div {
+    position: relative;
+}
+.online__dot {
+    background-color: greenyellow;
+    border-radius: 50%;
+    position: absolute;
+    left: 2rem;
+    width: 1rem;
+    height: 1rem;
+}
+.Chatbox__empty__message {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-size: 20px;
+}
+@media  screen and (max-width: 768px) {
+    .Chat {
+        grid-template-columns: 16% auto;
+    }
+    .follower.conversation>di>.name {
+        display: none;
+    }
+}
+
+
+.Chat__header {
+    padding: 1rem 1rem 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.Chat__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    overflow: scroll;
+}
+
+.Message {
+
+  background: var(--buttonBg);
+  color: white;
+  padding: 0.7rem;
+  border-radius: 1rem 1rem 1rem 0;
+  max-width: 28rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.Message>span:nth-child(2){
+    font-size: 0.7rem;
+    color: var(--textColor);
+    align-self: end;
+}
+
+.Own {
+  align-self: flex-end;
+  border-radius: 1rem 1rem 0 1rem;
+  background: linear-gradient(98.63deg, #24e4f0 0%, #358ff9 100%);
+}
+.Chat__Sender {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    height: 3.5rem;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    align-self: end;
+}
+.chat__Sender>input{
+    height: 70%;
+    background-color: rgb(236, 236, 236);
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    flex  :1 ;
+    font-size: 14px;
+    padding: 0px 15px 0px 15px;
+}
+.Chat__Sender>div:nth-of-type(1)
+{
+    background: rgb(233, 233, 233);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer
+}
+.Chat__Sender>div{
+    height: 70%;
+    padding: 0px 15px 0px 15px;
+}

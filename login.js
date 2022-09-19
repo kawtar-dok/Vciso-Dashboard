@@ -14,39 +14,50 @@ import SoftButton from "components/SoftButton";
 
 // Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
- 
+
 // Images
 import curved9 from "assets/images/curved-images/curved-6.jpg";
 
-import io from "socket.io-client";
-import Dashboard from "layouts/dashboard";
-const socket = io.connect("http://localhost:3001");
-
 function SignIn() {
-   
   const [rememberMe, setRememberMe] = useState(true);
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
-  
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [showDash, setShowDash] = useState(false);
+  const [info, setInfo] = useState({
+    email: "",
+    password: "",
+  });
  
-  const login = () => {
-    if (username !== "" && password !== "") {
-      socket.emit("join_dash", password);
-      setShowDash(true);
+  const [error, setError] = useState(false);
+  const router = useRouter();
+
+  
+  async function login() {
+    const data = await axios.post("http://localhost:3001/auth/login", {
+      data: {
+        username: info.username,
+        password: info.password,
+      },
+    });
+    if (data.data.success) {
+      localStorage.setItem("user", JSON.stringify(data.data));
+      
+      if (data.data.role === "expert") {
+        router.push("/expert/exportDashboard");
+      } else if (data.data.role === "client") {
+        router.push("/dashbord");
+      }
+    } else {
+      setError(true);
+      console.log(error);
+      //console.log(data.success)
     }
-  };
+  }
 
   return (
-    <>
-    {!showDash ? (
     <CoverLayout
       title="Welcome back"
       description="Enter your email and password to sign in"
       image={curved9}
     >
- 
       <SoftBox component="form" role="form">
         <SoftBox mb={2}>
           <SoftBox mb={1} ml={0.5}>
@@ -58,8 +69,8 @@ function SignIn() {
         //  onChange={(e)=>{console.log(e.target.value)}}
                       value={info.email}
                       onChange={(e) => {
-                        setUsername(e.target.value);
-                      
+                        setInfo({ ...info, email: e.target.value });
+                        setError(false);
                       }}
             />
         </SoftBox>
@@ -72,8 +83,9 @@ function SignIn() {
           <SoftInput type="password" placeholder="Password"
                       value={info.password}
                       onChange={(e) => {
-                        setPassword(e.target.value);
-                     }}
+                        setInfo({ ...info, password: e.target.value });
+                        setError(false);
+                      }}
               />
         </SoftBox>
         <SoftBox display="flex" alignItems="center">
@@ -115,10 +127,6 @@ function SignIn() {
         </SoftBox>
       </SoftBox>
     </CoverLayout>
-  ) : (
-     <Dashboard socket={socket} username={username} password={password}/>
-  )}
-  </>
   );
 }
 

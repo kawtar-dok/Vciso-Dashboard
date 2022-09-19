@@ -2,8 +2,8 @@
   "name": "vciso-dashboard",
   "version": "4.0.0",
   "author": "kawtar itoujane",
-  "license": "SEE LICENSE IN <https://www.creative-tim.com/license>",
-  "description": "ReactJS version of Soft UI Dashboard by Creative Tim",
+  "license": "SEE LICENSE IN",
+  "description": "ReactJS version of Soft UI Dashboard",
   "bugs": {
     "url": "https://github.com/creativetimofficial/soft-ui-dashboard-react/issues"
   },
@@ -39,10 +39,12 @@
     "react-router-dom": "^6.3.0",
     "react-script": "^2.0.5",
     "react-scripts": "^5.0.1",
+    "react-scroll-to-bottom": "^4.2.0",
+    "socket.io-client": "^4.5.2",
     "stylis": "4.1.1",
     "stylis-plugin-rtl": "2.1.1",
     "uuid": "8.3.2",
-    "web-vitals": "2.1.4"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

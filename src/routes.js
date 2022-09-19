@@ -18,6 +18,7 @@ import Document from "examples/Icons/Document";
 import SpaceShip from "examples/Icons/SpaceShip";
 import CustomerSupport from "examples/Icons/CustomerSupport";
 import Cube from "examples/Icons/Cube";
+import { Message } from "@mui/icons-material";
 
 const routes = [
   {
@@ -33,9 +34,9 @@ const routes = [
   {
     type: "collapse",
     name: "Messagerie",
-    key: "messages",
+    key: "messagerie",
     route: "/messagerie",
-    icon: <Shop size="12px" />,
+    icon: <Message size="12px" />,
     component: <Messages />,
     noCollapse: true,
   },

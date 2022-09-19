@@ -26,6 +26,7 @@ import OrderOverview from "layouts/dashboard/components/OrderOverview";
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import gradientLineChartData from "layouts/dashboard/data/gradientLineChartData";
+import Chat from "components/Chat/Chat";
 
 function Messages() {
   const { size } = typography;
@@ -34,7 +35,9 @@ function Messages() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      
+      {/*body*/}
+      <Chat/>
+      <Footer />
     </DashboardLayout>
   );
 }
