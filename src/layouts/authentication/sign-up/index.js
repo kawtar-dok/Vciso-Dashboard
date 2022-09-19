@@ -27,7 +27,7 @@ function SignUp() {
     username: "",
     password: "",
     email: "",
-    role: "client",
+    role: "Client",
     age: 0,
     firstname: "",
     lastname: "",
@@ -38,31 +38,28 @@ function SignUp() {
   const [error, setError] = useState(false);
 
   async function register() {
-    console.log(info);
-    const data = await axios.post("http://localhost:3001/auth//register", {
-      username: info.username,
-      password: info.password,
-      email: info.email,
-      role: info.role,
-      age: parseInt(info.age),
-      firstname: info.firstname,
-      lastname: info.lastname,
-      telephone: info.telephone,
-      city: info.city,
-      sexe: info.sexe,
-    });
-    console.log(data.data);
-    if (data.data.success === true) {
-      if (data.data.role === "client") {
-        window.location.herf = "/dashboard";
-        localStorage.setItem("user", JSON.stringify(data.data.client));
-      } else if (data.data.role === "expert") {
-        window.location.herf = "/expert/expertDashboard";
-        localStorage.setItem("user", JSON.stringify(data.data.expert));
+    try {
+      const data = await axios.post("http://localhost:3001/auth/register", {
+        username: info.username,
+        password: info.password,
+        email: info.email,
+        type: info.role,
+        age: parseInt(info.age),
+        firstname: info.firstname,
+        lastname: info.lastname,
+        telephone: info.telephone,
+        city: info.city,
+        sexe: info.sexe,
+      });
+      if (data.data.role === "Client") {
+        window.location.href = "/dashboard";
+        localStorage.setItem("user", JSON.stringify(data.data.user));
+      } else if (data.data.role === "Expert") {
+        window.location.href = "/expert/expertDashboard";
+        localStorage.setItem("user", JSON.stringify(data.data.user));
       }
-    } else {
+    } catch (err) {
       setError(true);
-      console.log(data.success);
     }
   }
 
@@ -115,7 +112,7 @@ function SignUp() {
               <SoftInput
                 type="password"
                 placeholder="Password"
-                value={info.username}
+                value={info.password}
                 onChange={(e) => {
                   setInfo({ ...info, password: e.target.value });
                 }}
@@ -152,6 +149,7 @@ function SignUp() {
               <SoftInput
                 placeholder="Age"
                 value={info.age}
+                type="number"
                 onChange={(e) => {
                   setInfo({ ...info, age: e.target.value });
                 }}
@@ -180,9 +178,9 @@ function SignUp() {
               <Checkbox
                 type="checkbox"
                 onChange={(e) => {
-                  setInfo({ ...info, role: "client" });
+                  setInfo({ ...info, role: "Client" });
                 }}
-                checked={info.role === "client"}
+                checked={info.role === "Client"}
               />
               <SoftTypography
                 variant="button"
@@ -196,9 +194,9 @@ function SignUp() {
             <SoftBox display="flex" alignItems="center">
               <Checkbox
                 type="checkbox"
-                checked={info.role === "expert"}
+                checked={info.role === "Expert"}
                 onChange={(e) => {
-                  setInfo({ ...info, role: "expert" });
+                  setInfo({ ...info, role: "Expert" });
                 }}
               />
               <SoftTypography

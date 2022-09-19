@@ -30,7 +30,7 @@ const routes = [
     component: <Dashboard />,
     noCollapse: true,
   },
-  
+
   {
     type: "collapse",
     name: "Messagerie",

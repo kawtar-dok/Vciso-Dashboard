@@ -6,13 +6,28 @@ import ExpertApp from "ExpertApp";
 // Soft UI Dashboard React Context Provider
 import { SoftUIControllerProvider } from "context";
 
-const container = document.getElementById('root');
+const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
+const user = JSON.parse(localStorage.getItem("user"));
+const currentWindow = window.location.href;
 
-root.render(
-  <BrowserRouter>
-    <SoftUIControllerProvider>
+if (!user) {
+  if (!currentWindow.includes("sign")) {
+    window.location.href = "/authentication/sign-in";
+  }
+  root.render(
+    <BrowserRouter>
+      <SoftUIControllerProvider>
         <App />
-    </SoftUIControllerProvider>
-  </BrowserRouter>
-);
+      </SoftUIControllerProvider>
+    </BrowserRouter>
+  );
+} else {
+  root.render(
+    <BrowserRouter>
+      <SoftUIControllerProvider>
+        {JSON.parse(localStorage.getItem("user")).role === "Client" ? <App /> : <ExpertApp />}
+      </SoftUIControllerProvider>
+    </BrowserRouter>
+  );
+}

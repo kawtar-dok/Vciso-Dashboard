@@ -80,6 +80,11 @@ function ExpertDashboardNavbar({ absolute, light, isMini }) {
   const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
   const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
   const handleCloseMenu = () => setOpenMenu(false);
+  const logout = () => {
+    localStorage.removeItem("user");
+    window.location.href = "/authentication/sign-in";
+    console.log(localStorage.getItem("user"));
+  };
 
   // Render the notifications menu
   const renderMenu = () => (
@@ -152,8 +157,9 @@ function ExpertDashboardNavbar({ absolute, light, isMini }) {
                     variant="button"
                     fontWeight="medium"
                     color={light ? "white" : "dark"}
+                    onClick={logout}
                   >
-                    Sign in
+                    Logout
                   </SoftTypography>
                 </IconButton>
               </Link>

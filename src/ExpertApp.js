@@ -14,8 +14,10 @@ import SoftBox from "components/SoftBox";
 
 // Soft UI Dashboard React examples
 import ExpertSidenav from "examples/ExpertSidenav";
+import Sidenav from "examples/Sidenav";
+
 import Configurator from "examples/Configurator";
-import Chat  from "examples/Chat";
+import Chat from "examples/Chat";
 
 // Soft UI Dashboard React themes
 import theme from "assets/theme";
@@ -29,15 +31,16 @@ import createCache from "@emotion/cache";
 // Soft UI Dashboard React routes
 //import routes from "routes";
 import expertRoutes from "expertRoutes";
+import routes from "routes";
 // Soft UI Dashboard React contexts
-import { useSoftUIController, setMiniSidenav, setOpenConfigurator,setOpenChat } from "context";
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator, setOpenChat } from "context";
 
 // Images
 import brand from "assets/images/logo/logo.png";
 
 export default function expertApp() {
   const [controller, dispatch] = useSoftUIController();
-  const { miniSidenav, direction, layout, openConfigurator,openChat , sidenavColor } = controller;
+  const { miniSidenav, direction, layout, openConfigurator, openChat, sidenavColor } = controller;
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
@@ -123,9 +126,9 @@ export default function expertApp() {
     <CacheProvider value={rtlCache}>
       <ThemeProvider theme={themeRTL}>
         <CssBaseline />
-        {layout === "expertDashboard" && (
+        {layout === "dashboard" && (
           <>
-            <ExpertSidenav
+            <Sidenav
               color={sidenavColor}
               brand={brand}
               brandName=""
@@ -147,7 +150,7 @@ export default function expertApp() {
   ) : (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {layout === "expertDashboard" && (
+      {layout === "dashboard" && (
         <>
           <ExpertSidenav
             color={sidenavColor}
