@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+{/*import React, { useEffect, useState } from "react";
 import {ScrollToBottom} from "react-scroll-to-bottom";
 
 function Conversation({ socket, username, password}) {
@@ -74,3 +74,4 @@ function Conversation({ socket, username, password}) {
 }
 
 export default Conversation;
+*/}

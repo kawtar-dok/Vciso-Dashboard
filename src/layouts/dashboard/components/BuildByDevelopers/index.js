@@ -9,7 +9,7 @@ import SoftTypography from "components/SoftTypography";
 
 // Images
 import wavesWhite from "assets/images/shapes/waves-white.svg";
-import CISO from "assets/images/illustrations/CISO.jpg";
+import CISO from "assets/images/1.jpg";
 
 function BuildByDevelopers() {
   return (
@@ -59,8 +59,6 @@ plague some organizations
                   },
                 }}
               >
-                Read More
-                <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
               </SoftTypography>
             </SoftBox>
           </Grid>
@@ -70,7 +68,7 @@ plague some organizations
               display="grid"
               justifyContent="center"
               alignItems="center"
-              bgColor="info"
+              bgColor=""
               borderRadius="lg"
               variant="gradient"
             >
@@ -84,7 +82,7 @@ plague some organizations
                 width="100%"
                 height="100%"
               />
-              <SoftBox component="img" src={CISO} alt="rocket" width="100%" pt={3} />
+              <SoftBox component="img" src={CISO} alt="rocket" width="100%" pt={1} />
             </SoftBox>
           </Grid>
         </Grid>
@@ -94,3 +92,4 @@ plague some organizations
 }
 
 export default BuildByDevelopers;
+

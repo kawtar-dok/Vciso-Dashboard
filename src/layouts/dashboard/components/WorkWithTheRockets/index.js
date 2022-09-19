@@ -31,13 +31,16 @@ function WorkWithTheRockets() {
         >
           <SoftBox mb={3} pt={1}>
             <SoftTypography variant="h5" color="white" fontWeight="bold">
-              Work with the rockets
+              ToDo List
             </SoftTypography>
           </SoftBox>
-          <SoftBox mb={2}>
+          <SoftBox mb={2} > 
             <SoftTypography variant="body2" color="white">
-              Wealth creation is an evolutionarily recent positive-sum game. It is all about who
-              take the opportunity first.
+              <input value='Reconnect to my plateform at 9pm' id='todo' type='text' disabled style={{ width:"350px" ,height:"50px",color:"white"}} />
+              <input value='Ask for the problem with my code in the last part' id='todo' type='text' disabled style={{ width:"350px" ,height:"50px",color:"white"}} />
+              <input value='' id='todo' type='text' disabled style={{ width:"350px" ,height:"50px", color:"white"}} />
+              <input value='' id='todo' type='text' disabled style={{ width:"350px" ,height:"50px", color:"white"}} />
+              
             </SoftTypography>
           </SoftBox>
           <SoftTypography
@@ -64,8 +67,8 @@ function WorkWithTheRockets() {
               },
             }}
           >
-            Read More
-            <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
+            
+            
           </SoftTypography>
         </SoftBox>
       </SoftBox>
