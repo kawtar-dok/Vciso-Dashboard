@@ -151,7 +151,7 @@ function ExpertDashboardNavbar({ absolute, light, isMini }) {
                       color: light ? white.main : dark.main,
                     })}
                   >
-                    account_circle
+                    logout
                   </Icon>
                   <SoftTypography
                     variant="button"
@@ -159,7 +159,7 @@ function ExpertDashboardNavbar({ absolute, light, isMini }) {
                     color={light ? "white" : "dark"}
                     onClick={logout}
                   >
-                    Logout
+                    Log out
                   </SoftTypography>
                 </IconButton>
               </Link>

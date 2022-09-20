@@ -34,7 +34,7 @@ class ActionProvider {
       const message = this.createChatBotMessage("i'am doing good and you ?");
       this.setChatBotMessage(message);
    };
-   helpHandler() {
+   askingHandler() {
       const message = this.createChatBotMessage("there's many solutions we do have FCE, The SolFetch");
       this.setChatBotMessage(message);
    };
@@ -63,9 +63,12 @@ class ActionProvider {
       const message = this.createChatBotMessage("yes, ask!");
       this.setChatBotMessage(message);
    };
+   errorHandler() {
+      const message = this.createChatBotMessage("i don't understand what you are saying! Try something else");
+      this.setChatBotMessage(message);
+   }; 
 
-
-
+  
    setChatBotMessage (message){
       this.setState(state => ({ ...state, messages: [...state.messages, message]
    }))

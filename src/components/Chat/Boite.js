@@ -13,7 +13,8 @@ const Boite = () => {
         {/* Left Side*/}  
         <Card className="Boite__Card">
            <div className="Right__Side__chat">
-            <Conversation />
+            {/* Left Side<Conversation />*/}  
+            
            </div>
         </Card>   
        

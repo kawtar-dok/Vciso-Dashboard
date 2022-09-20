@@ -20,7 +20,6 @@ import Separator from "layouts/authentication/components/Separator";
 
 // Images
 import curved6 from "assets/images/curved-images/curved14.jpg";
-import SignIn from "layouts/authentication/sign-in";
 
 function SignUp() {
   const [info, setInfo] = useState({

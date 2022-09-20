@@ -15,16 +15,16 @@ class MessageParser {
       if (lowercase.includes("how are you?")) {
         this.actionProvider.hayHandler();
        }
-      if (lowercase.includes("can you gimme some Vciso solutions?")) {
-        this.actionProvider.helpHandler();
+      if (lowercase.includes("i want to see some vciso solutions?")) {
+        this.actionProvider.askingHandler();
        }
        if (lowercase.includes("yes") ) {
         this.actionProvider.yesHandler();
        }
-       if (lowercase.includes("i'am good") || lowercase.includes("fine")  || lowercase.includes("good") || lowercase.includes("m good") || lowercase.includes("am good") || lowercase.includes("i am good"))  {
+       if (lowercase.includes("i'am good") || lowercase.includes("m good") || lowercase.includes("am good") || lowercase.includes("i am good"))  {
         this.actionProvider.mgoodHandler();
        }  
-       if (lowercase.includes("good bye")  || lowercase.includes("GoodBye") || lowercase.includes("see you later")) {
+       if (lowercase.includes("good bye")  || lowercase.includes("GoodBye")) {
         this.actionProvider.goodbyeBHandler();
        }
        if (lowercase.includes("Who are you?")){
@@ -37,7 +37,9 @@ class MessageParser {
        if (lowercase.includes("what is your name?")  || lowercase.includes("what should I call you?")){
         this.actionProvider.nameHandler();
        }
+       
     }
+  
   }
   
   export default MessageParser;

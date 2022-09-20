@@ -37,14 +37,16 @@ const Chat = () =>{
                 <h2>Chats</h2>
                 <Divider/>
                 <div className='Chat__list'>
-                     <Conversation />
+                        {/* Right <Boite /><Conversation /> Side*/}
+                     
                 </div>
             </SoftBox>
           </div>
         </Card>
     </SoftBox>
       {/* Right Side*/}
-     <Boite />
+      <Boite /> 
+    
  </div>
    
 </SoftBox>

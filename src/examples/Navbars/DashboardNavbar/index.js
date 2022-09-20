@@ -51,7 +51,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator } = controller;
   const [openMenu, setOpenMenu] = useState(false);
   const route = useLocation().pathname.split("/").slice(1);
-  const {logout } =  useLRAuth();
+
   useEffect(() => {
     // Setting the navbar type
     if (fixedNavbar) {
@@ -82,6 +82,11 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
   const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
   const handleCloseMenu = () => setOpenMenu(false);
+  const logout = () => {
+    localStorage.removeItem("user");
+    window.location.href = "/authentication/sign-in";
+    console.log(localStorage.getItem("user"));
+  };
 
   // Render the notifications menu
   const renderMenu = () => (
@@ -143,7 +148,6 @@ function DashboardNavbar({ absolute, light, isMini }) {
             <SoftBox color={light ? "white" : "inherit"}>
               <Link to="/authentication/sign-in">
                 <IconButton sx={navbarIconButton} size="small"
-                onClick={() => logout()}
                     >
                   <Icon
                     sx={({ palette: { dark, white } }) => ({
@@ -156,6 +160,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
                     variant="button"
                     fontWeight="medium"
                     color={light ? "white" : "dark"}
+                    onClick={logout}
                   >
                     Log out
                   </SoftTypography>
